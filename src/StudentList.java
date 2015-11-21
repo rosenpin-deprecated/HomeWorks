@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -43,6 +45,11 @@ public class StudentList {
 
     public String toString() {
         String list = "";
+        Collections.sort(students, new Comparator<Student>() {
+            public int compare(Student v1, Student v2) {
+                return v1.getName().compareTo(v2.getName());
+            }
+        });
         for (Student student : students) {
             list = list + student.getName() + " " + student.getPhone() + "\n";
         }
